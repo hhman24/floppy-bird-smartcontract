@@ -1,0 +1,9 @@
+{
+  "extends": "solhint:recommended",
+  "plugins": ["prettier"],
+  "rules": {
+    "explicit-types": "error",
+    "no-console": "warn",
+    "prettier/prettier": "warn"
+  }
+}
