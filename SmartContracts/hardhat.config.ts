@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-verify";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -15,7 +16,10 @@ const config: HardhatUserConfig = {
         count: 10
       },
     }
-  }
+  },
+  etherscan: {
+    apiKey: process.env.API_KEY,
+  },
 };
 
 export default config;

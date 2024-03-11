@@ -4,7 +4,10 @@
   "description": "Implement smart contract",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "hardhat compile",
+    "deloy": "hardhat run scripts/deloy.ts --network",
+    "test": "hardhat test",
+    "verify": "hardhat verify --network"
   },
   "author": "hhman",
   "license": "ISC",
