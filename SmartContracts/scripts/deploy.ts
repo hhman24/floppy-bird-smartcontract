@@ -1,22 +1,20 @@
-import { ethers } from "hardhat";
+import { ethers, hardhatArguments } from "hardhat";
+import * as Config from './config';
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  await Config.initConfig();
+  const netWork = hardhatArguments.network || 'dev';
+  // ???
+  const [deployer] = await ethers.getSigners();
+  console.log('deploy from address: ', deployer.address);
 
-  const lockedAmount = ethers.parseEther("0.001");
-
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );
+  const Floppy = await ethers.getContractFactory("Floppy");
+  // version ? 
+  const floppy = await Floppy.deploy(deployer.address);
+  console.log("Floopy address: ", floppy.getAddress());
+  // ?
+  Config.setConfig(netWork + '.Floppy', (await floppy.getAddress()));
+  await Config.updateConfig();
 }
 
 // We recommend this pattern to be able to use async/await everywhere
