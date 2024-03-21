@@ -13,13 +13,14 @@ contract Floppy is ERC20, ERC20Burnable, Ownable {
     uint256 private cap = 50_000_000_000 * 10 * uint256(18);
 
     // khởi tạo smart contract khi nó được tạo
-    constructor(address initialOwner) ERC20("Floppy", "FLP") Ownable(initialOwner) {
+    constructor() ERC20("Floppy", "FLP") Ownable(msg.sender) {
         // Creates a value amount of tokens and assigns them to account
         _mint(msg.sender, cap);
         // Transfers ownership of the contract to a new account (newOwner).
-        transferOwnership(msg.sender);
+        // transferOwnership(msg.sender);
     }
 
+    // tạo thêm
     function mint(address to, uint256 amount) public onlyOwner {
         // kiểm tra xem tổng cung của token sau khi thêm mới có vượt quá giới hạn cap hay không
         require(totalSupply() + amount <= cap, "Floppy: cap exceeded");
