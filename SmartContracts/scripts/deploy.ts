@@ -3,23 +3,26 @@ import * as Config from './config';
 
 async function main() {
   await Config.initConfig();
-  const netWork = hardhatArguments.network || 'dev';
-  // ???
+  const network = hardhatArguments.network ? hardhatArguments.network : 'dev';
   const [deployer] = await ethers.getSigners();
   console.log('deploy from address: ', deployer.address);
 
+
   const Floppy = await ethers.getContractFactory("Floppy");
-  // version ? 
-  const floppy = await Floppy.deploy(deployer.address);
-  console.log("Floopy address: ", floppy.getAddress());
-  // ?
-  Config.setConfig(netWork + '.Floppy', (await floppy.getAddress()));
+  const floppy = await Floppy.deploy();
+  console.log('Floppy address: ', floppy.getAddress());
+  Config.setConfig(network + '.Floppy', await floppy.getAddress());
+
+
+  const Vault = await ethers.getContractFactory("Vault");
+  const vault = await Vault.deploy();
+  console.log('Vault address: ', vault.getAddress());
+  Config.setConfig(network + '.Vault', await vault.getAddress());
   await Config.updateConfig();
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main().then(() => process.exit(0))
+  .catch(err => {
+      console.error(err);
+      process.exit(1);
+  });

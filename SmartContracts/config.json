@@ -1,5 +1,8 @@
 {
-    "dev": {},
-    "bsctest": {},
-    "main": {}
+  "dev": {},
+  "bsctest": {
+    "Floppy": "",
+    "Vault": ""
+  },
+  "main": {}
 }
