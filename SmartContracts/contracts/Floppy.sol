@@ -9,8 +9,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
 contract Floppy is ERC20, ERC20Burnable, Ownable {
-    // biến cap này giới hạn cung cấp token của contract 
-    uint256 private cap = 50_000_000_000 * 10 * uint256(18);
+    // biến cap này giới hạn cung cấp token của contract
+    uint256 private cap = 50_000_000_000 * 10 ** uint256(18);
 
     // khởi tạo smart contract khi nó được tạo
     constructor() ERC20("Floppy", "FLP") Ownable(msg.sender) {
