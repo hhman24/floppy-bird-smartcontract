@@ -1,0 +1,39 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "create gameFi basic",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "blockchain"
+  ],
+  "author": "hhman",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "http-status-code": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.7",
+    "web3": "^4.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/eslint-parser": "^7.22.10",
+    "@babel/node": "^7.22.10",
+    "@babel/plugin-transform-runtime": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.2.5"
+  }
+}
