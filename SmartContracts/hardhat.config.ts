@@ -17,12 +17,12 @@ const config: HardhatUserConfig = {
         count: 10
       },
     },
-    // bsctest: {
-    //   url: "",
-    //   accounts: [process.env.PRIZ_KEY as string],
-    //   gasPrice: 100000000000,
-    //   blockGasLimit: 10000000
-    // }
+    bsctest: {
+      url: " https://data-seed-prebsc-1-s1.binance.org:8545/",
+      accounts: [process.env.PRIV_KEY as string],
+      gasPrice: 100000000000,
+      blockGasLimit: 10000000
+    }
   },
   etherscan: {
     apiKey: process.env.API_KEY,
