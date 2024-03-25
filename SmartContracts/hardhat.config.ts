@@ -22,7 +22,11 @@ const config: HardhatUserConfig = {
       accounts: [process.env.PRIV_KEY as string],
       gasPrice: 100000000000,
       blockGasLimit: 10000000
-    }
+    },
+    polygontest: {
+      url: " https://polygon-mumbai.g.alchemy.com/v2/bqplRLkNDIfSRkZETh6ifKTBZHfauIzJ",
+      accounts: [process.env.PRIV_KEY as string],
+    },
   },
   etherscan: {
     apiKey: process.env.API_KEY,
