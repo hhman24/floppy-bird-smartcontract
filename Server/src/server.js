@@ -15,6 +15,8 @@ const START_SERVER = () => {
   app.use(express.json());
   app.use(cookie());
 
+  app.use('/v1', API_v1);
+
   // config cors
   app.use(cors(corsOptions));
   // add middleware handle error
@@ -23,7 +25,6 @@ const START_SERVER = () => {
   app.use(Loggers.logger);
 
   // route
-  app.use('/v1', API_v1);
 
   app.listen(env.APP_PORT, env.APP_HOST, () => {
     console.log(`Server is running on ${env.APP_HOST}:${env.APP_PORT}`);

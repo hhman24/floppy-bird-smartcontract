@@ -5,6 +5,7 @@ const cStoreCommand = new StoreCommand.cStoreCommand();
 
 class FloopybirdDAO {
   constructor(dbFilePath) {
+    console.log(dbFilePath);
     this.db = new sqlite3.Database(dbFilePath, (err) => {
       if (err) {
         console.log('Could not connect to database', err);

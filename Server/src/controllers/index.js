@@ -1,10 +1,9 @@
-'use strict';
 import { StatusCodes } from 'http-status-codes';
 import FloppyDAO from '~/models/FloppyBirdDAO';
 import SmartContractDAO from '~/models/SmartContractDAO';
 import ApiError from '~/utils/apiError';
 const matchCode = 5;
-const dbfilepath = '../models/FoppyBird.db';
+const dbfilepath = './FloppyBird.db';
 
 /**
  * @dev get balance controller
@@ -17,7 +16,7 @@ async function _getBalance(Address) {
 
 const getBalance = async (req, res, next) => {
   try {
-    let bls = await _getBalance(req.query.address);
+    const bls = await _getBalance(req.query.address);
     if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
     return res.status(StatusCodes.OK).json({
       code: 0,
@@ -58,7 +57,6 @@ const getTitketBalance = async (req, res, next) => {
       message: 'Success',
     });
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };

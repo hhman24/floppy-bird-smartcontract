@@ -51,23 +51,23 @@ const DatabaseInit = (db) => {
 };
 
 // Create new database
-const CreateNewDB = () => {
-  let newBD = new sqlite3.Database('./FloppyBird.db', (err) => {
-    if (err) {
-      throw new Error(err);
-    } else {
-      console.log('Database created successfully');
-    }
-  });
+// const CreateNewDB = () => {
+//   let newBD = new sqlite3.Database('./FloppyBird.db', (err) => {
+//     if (err) {
+//       throw new Error(err);
+//     } else {
+//       console.log('Database created successfully');
+//     }
+//   });
 
-  try {
-    DatabaseInit(newBD);
-  } catch (err) {
-    console.log(err);
-    process.exit(0);
-  }
-};
+//   try {
+//     DatabaseInit(newBD);
+//   } catch (err) {
+//     console.log(err);
+//     process.exit(0);
+//   }
+// };
 
-CreateNewDB();
+// CreateNewDB();
 
 module.exports.DatabaseInit = DatabaseInit;
