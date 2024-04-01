@@ -1,8 +1,10 @@
 class ApiError extends Error {
-  constructor(statusCode, message) {
+  constructor(statusCode, code, message) {
     super(message);
 
     this.name = 'ApiError';
+
+    this.code = code;
 
     this.statusCode = statusCode;
 
