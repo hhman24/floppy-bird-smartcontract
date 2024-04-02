@@ -20,8 +20,8 @@ const config: HardhatUserConfig = {
     bsctest: {
       url: " https://data-seed-prebsc-1-s1.binance.org:8545/",
       accounts: [process.env.PRIV_KEY as string],
-      gasPrice: 100000000000,
-      blockGasLimit: 10000000
+      // gasPrice: 100000000000,
+      // blockGasLimit: 10000000
     },
     polygontest: {
       url: " https://polygon-mumbai.g.alchemy.com/v2/bqplRLkNDIfSRkZETh6ifKTBZHfauIzJ",

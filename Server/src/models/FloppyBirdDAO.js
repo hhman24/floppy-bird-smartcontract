@@ -133,7 +133,7 @@ class FloopybirdDAO {
     console.log(data);
 
     let result = await this.RunCommand(cStoreCommand.EndPlayerMatchCommand, data);
-    if (result == null || result.length == 0) return null;
+    if (result === null || result.length === 0) return null;
     return result[0].id;
   }
 }
