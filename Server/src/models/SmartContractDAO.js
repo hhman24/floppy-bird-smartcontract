@@ -17,12 +17,13 @@ class SmartContractDAO {
   async getBalance(address) {
     try {
       address = address.toLowerCase();
-      let contract = await this.web3.eth.Contract(floppyAbi, this.token_address);
-      let bl = await contract.methods.balanceOf(address).call();
+      const contract = new this.web3.eth.Contract(floppyAbi, this.token_address);
+      const bl = await contract.methods.balanceOf(address).call();
 
-      let value = bl / 10 ** 18;
+      const value = parseInt(bl.toString()) / 10 ** 18;
       return value;
     } catch (error) {
+      console.log(error);
       return null;
     }
   }

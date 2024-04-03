@@ -17,7 +17,7 @@ async function _getBalance(Address) {
 const getBalance = async (req, res, next) => {
   try {
     const bls = await _getBalance(req.query.address);
-    if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
+    if (bls === null) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
     return res.status(StatusCodes.OK).json({
       code: 0,
       data: {
