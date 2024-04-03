@@ -48,7 +48,7 @@ async function _getTicketBalance(address) {
 const getTitketBalance = async (req, res, next) => {
   try {
     const bls = await _getTicketBalance(req.query.address);
-    if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
+    if (bls === null) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
     return res.status(StatusCodes.OK).json({
       code: 0,
       data: {
@@ -81,7 +81,7 @@ async function _startPlayerMatch(address) {
 const startMatch = async (req, res, next) => {
   try {
     const bls = await _startPlayerMatch(req.query.address);
-    if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
+    if (bls === null) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
     return res.status(StatusCodes.OK).json({
       code: 0,
       data: {
@@ -118,7 +118,7 @@ const endMatch = async (req, res, next) => {
     const { address, id, point, matchData } = req.body;
 
     const bls = await _endPlayerMatch(address, id, point, matchData);
-    if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
+    if (bls === null) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
 
     return res.status(StatusCodes.OK).json({
       code: 0,
@@ -149,7 +149,7 @@ async function _getTopPlayer() {
 const getTop = async (req, res, next) => {
   try {
     var bls = await _getTopPlayer();
-    if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
+    if (bls === null) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
 
     return res.status(StatusCodes.OK).json({
       code: 0,
@@ -180,7 +180,7 @@ async function _addPlayer(address) {
 const addPlayer = async (req, res, next) => {
   try {
     var bls = await _addPlayer(req.query.address);
-    if (!bls) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
+    if (bls === null) throw new ApiError(StatusCodes.UNAUTHORIZED, 101, 'something wrongs');
     return res.status(StatusCodes.OK).json({
       code: 0,
       data: {
@@ -220,7 +220,7 @@ const deposit = async (req, res, next) => {
     }
 
     const result = await _addTicketBalance(address, amount, transaction_id);
-    if (!result) {
+    if (result === null) {
       throw new ApiError(StatusCodes.BAD_REQUEST, 102, 'bad request');
     }
     return res.status(StatusCodes.OK).json({
@@ -273,7 +273,7 @@ const withdraw = async (req, res, next) => {
     }
 
     const result = await _withdrawTicketBalance(address, amount);
-    if (!result) {
+    if (result === null) {
       throw new ApiError(StatusCodes.BAD_REQUEST, 102, 'bad request');
     }
 
