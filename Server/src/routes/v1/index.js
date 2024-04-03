@@ -27,12 +27,36 @@ Router.get('/startMatch', apiController.startMatch);
 /**
  {
     "address": "0x97922AEb927A3bE7DF0439AA0F3e769FF7Ee0eC8",
+    "id": 1,
+    "point": 100,
+    "matchData": []
  }
  */
 Router.post('/endMatch', apiController.endMatch);
 
+// get leader board
+// http://localhost:8000/v1/getTop
 Router.get('/getTop', apiController.getTop);
+
+// deposit into the vault
+// http://localhost:8000/v1/deposit
+/**
+{
+  "address": "0x97922AEb927A3bE7DF0439AA0F3e769FF7Ee0eC8",
+  "amount": 200,
+  "transaction_id": 100, // ?
+}
+ */
 Router.post('/deposit', apiController.deposit);
+
+// withdraw ticket to FLP token
+// http://localhost:8000/v1/withdraw
+/**
+{
+  "address": "0x97922AEb927A3bE7DF0439AA0F3e769FF7Ee0eC8",
+  "amount": 50, // ?
+}
+ */
 Router.post('/withdraw', apiController.withdraw);
 
 export const API_v1 = Router;
