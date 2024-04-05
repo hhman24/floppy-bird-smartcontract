@@ -22,6 +22,26 @@
    </head>
    <body>
       <div id="gamecontainer">
+         <!-- Wallet connect button -->
+         <div id="walletConnect" class="connect__button">Connect wallet</div>
+         <!-- Wallet information -->
+         <div class="wallet__infomation">
+            <div id="walletInfo"></div>
+            <div class="btn__wrapper">
+               <div id="disconnectWallet" class="diconnect__wallet">
+                  <span>
+                     Disconnect
+                  </span>
+               </div>
+
+               <div id="convertContainer" class="diconnect__wallet">
+                  <span>
+                     Convert
+                  </span>
+               </div>
+            </div>
+         </div>
+
          <div id="gamescreen">
             <div id="sky" class="animated">
                <div id="flyarea">
@@ -45,6 +65,35 @@
             </div>
             <div id="land" class="animated"><div id="debug"></div></div>
          </div>
+
+         <!-- Deposit / withdraw -->
+         <div id="depositWithdraw">
+            <span class="convert__title">Convert title</span>
+            <div class="row">
+               <span id="labelFrom">Ticket</span>
+               <input type="number" value="0" id="fromTicket" />
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+               <img src="./assets/arrow.png" alt="" id="imgConvert" style="width: 25px; cursor: pointer;"/>
+
+               <div class="row">
+                  <span id="labelTo">FBird</span>
+                  <input type="number" value="0" readonly id="toTicket" />
+               </div>
+
+               <div class="row">
+                  <span id="processing">please wait............</span>
+                  <button id="btnConvert">Convert</button>
+               </div>
+            </div>
+         </div>
+
+         <!-- Dialog -->
+         <div id="dialog">
+            <p>Your transactions is completed</p>
+            <a href="" target="_blank" id="a-transactionHash"> ******* </a>
+         </div>
       </div>
       <div id="footer">
          <a href="https://www.dotgears.com/">original game/concept/art by dong nguyen</a>
@@ -54,9 +103,22 @@
       <div class="boundingbox" id="playerbox"></div>
       <div class="boundingbox" id="pipebox"></div>
 
+      <!-- axios -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
       <script src="js/jquery.min.js"></script>
+      <script src="js/jquery-ui.min.js"></script>
       <script src="js/jquery.transit.min.js"></script>
       <script src="js/buzz.min.js"></script>
+
+      <!-- import api.js -->
+      <script src="js/web3/api.js"></script>
+      <script src="js/web3/web3Modal.js"></script>
+
+      <script type="text/javascript" src="js/web3/web3.min.js"></script>
+      <script type="text/javascript" src="js/web3/web3.modal.index.js"></script>
+      <script type="text/javascript" src="js/web3/web3-provider.min.js"></script>
+
       <script src="js/main.js"></script>
 
       <script>
