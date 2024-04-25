@@ -20,9 +20,10 @@
    <meta property="og:site_name" content="Floppy Bird" />
 
    <!-- Style sheets -->
-   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/jquery-ui.js">
+   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
    <link href="css/reset.css" rel="stylesheet">
    <link href="css/main.css" rel="stylesheet">
+   
 </head>
 
 <body>
@@ -48,7 +49,6 @@
          <div id="sky" class="animated">
             <div id="flyarea">
                <div id="ceiling" class="animated"></div>
-               <!-- This is the flying and pipe area container -->
                <div id="player" class="bird animated"></div>
 
                <div id="bigscore"></div>
@@ -62,7 +62,6 @@
                   <div id="replay"><img src="assets/replay.png" alt="replay"></div>
                </div>
 
-               <!-- Pipes go here! -->
             </div>
          </div>
          <div id="land" class="animated">
@@ -108,7 +107,7 @@
    <div class="boundingbox" id="pipebox"></div>
 
    
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script src="js/jquery.min.js"></script>
    <script src="js/jquery-ui.min.js"></script>
    <script src="js/jquery.transit.min.js"></script>
@@ -118,9 +117,9 @@
    <script type="text/javascript" src="js/web3/web3-provider.min.js"></script>
 
 
-   <script src="js/web3/api.js"></script>
-   <script src="js/web3/web3Modal.js"></script>
-   <script src="js/main.js"></script>
+   <script src="js/web3/api.js" ></script>
+   <script src="js/web3/web3Modal.js" ></script>
+   <script src="js/main.js" ></script>
 
    <script>
       function inIframe() {

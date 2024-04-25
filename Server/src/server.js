@@ -18,7 +18,28 @@ const START_SERVER = () => {
   app.use('/v1', API_v1);
 
   // config cors
-  app.use(cors(corsOptions));
+  app.use(
+    cors({
+      origin: 'http://127.0.0.1:5500',
+      methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+      optionsSuccessStatus: 204,
+      preflightContinue: false,
+      withCredentials: true,
+    }),
+  );
+  app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT');
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Content-Type',
+      'X-Auth-Token',
+      'Origin',
+      'Authorization',
+    );
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
   // add middleware handle error
   app.use(errorHandingMiddleware);
   // add logger middleware

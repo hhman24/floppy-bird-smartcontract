@@ -1,8 +1,8 @@
 {
   "dev": {},
   "bsctest": {
-    "Floppy": "0x142436b504066cdB50A7FDF94Ef2BF9d9F6aEF15",
-    "Vault": "0x8569CB10FA577C9de7e52dab8FAc258A3a6B371C"
+    "Floppy": "0xE746f03Ebc4CA27AC391C91f78EcdEbEf7533c27",
+    "Vault": "0x543af8F35e032041019c2231139Ba88C160267a9"
   },
   "polygontest": {
     "Floppy": "0xA6882a0887bf32D5C83aB69A9E067C2205589812",

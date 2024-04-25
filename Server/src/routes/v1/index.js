@@ -14,7 +14,7 @@ Router.get('/status', (req, res) => {
 // http://localhost:8000/v1/getTicketBalance?address=0x97922AEb927A3bE7DF0439AA0F3e769FF7Ee0eC8
 Router.get('/getTicketBalance', apiController.getTitketBalance);
 
-// balnace in FLP
+// balance in FLP
 // http://localhost:8000/v1/getBalance?address=0x97922AEb927A3bE7DF0439AA0F3e769FF7Ee0eC8
 Router.get('/getBalance', apiController.getBalance);
 

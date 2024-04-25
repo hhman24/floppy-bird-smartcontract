@@ -107,7 +107,7 @@ class FloopybirdDAO {
       $wallet_id: wallet_id,
       $amount: amount,
     });
-    if (result == null || result.length == 0) return null;
+    if (result === null || result.length === 0) return null;
     let tx = await this.AddPlayerBalanceTransaction(wallet_id, 2, amount, date, null);
     return { amount: amount, transid: tx };
   }

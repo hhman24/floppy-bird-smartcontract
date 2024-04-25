@@ -35,7 +35,7 @@ class SmartContractDAO {
     var value = Web3.utils.toWei(amount.toString());
     var rs = await vault_contract.methods.withdraw(value, address).send({
       from: this.withdrawer_address,
-      gas: 3000000,
+      // gas: 3000000,
     });
     return rs.transactionHash;
   }

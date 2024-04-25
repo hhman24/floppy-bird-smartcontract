@@ -38,6 +38,8 @@ async function _getTicketBalance(address) {
   const dao = new FloppyDAO(dbfilepath);
   try {
     await dao.AddPlayerVault(address);
+  } catch {}
+  try {
     return await dao.GetPlayerBalance(address);
   } catch (error) {
     console.log(error);
@@ -68,7 +70,7 @@ const getTitketBalance = async (req, res, next) => {
 async function _startPlayerMatch(address) {
   try {
     const dao = new FloppyDAO(dbfilepath);
-    const code = await dao.WithdrawPlayerBalance(address, matchCode);
+    const code = await dao.WithdrawPlayerBalance(address, matchCode); // mathCode: 5
     if (code !== null) {
       return await dao.StartPlayerMatch(address);
     }
